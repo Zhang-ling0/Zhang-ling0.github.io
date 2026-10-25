@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#050b18">
   <meta name="description" content="Zhang-ling0 的开发者个人主页，记录 C++、Linux、网络编程与 AI 系统工程的学习和项目。">
-  <title>Zhang-ling0 — Developer Dashboard</title>
+  <title>Miss Zhang — Developer Dashboard</title>
   <style>
     :root {
       --bg: #050b18; --panel: rgba(10, 22, 46, .82); --panel2: rgba(8, 18, 39, .92);
@@ -156,6 +156,55 @@
       footer { flex-direction:column; align-items:flex-start; }
     }
     @media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior:auto !important; transition:none !important; } .reveal { opacity:1; transform:none; } }
+
+    /* Reference-inspired dashboard refinements */
+    .sidebar { width: 150px; padding: 30px 12px; background: rgba(3, 10, 24, .96); }
+    .brand { padding: 5px 12px 35px; }
+    main { margin-left: 150px; padding: 24px 20px 28px; max-width: none; }
+    .hero { min-height: 220px; padding: 30px 56px; border-radius: 15px; }
+    .hero-image { opacity: .55; object-position: center 48%; }
+    .hero::before { background: linear-gradient(90deg, rgba(3,10,25,.94), rgba(4,13,33,.68) 43%, rgba(8,10,35,.08)); }
+    .hero::after { width: 300px; height: 300px; right: 9%; top: -145px; }
+    .hero-greeting { color: #eaf2ff; font-size: 20px; margin-bottom: -3px; }
+    h1 { margin: 0 0 9px; font-size: clamp(42px, 4.5vw, 62px); }
+    .hero-sub { font-size: 14px; }
+    .pills { margin-top: 16px; }
+    .section { margin-top: 14px; }
+    .grid { gap: 16px; }
+    .panel { border-radius: 14px; padding: 20px; }
+    .panel-heading { margin-bottom: 11px; }
+    .two-col { grid-template-columns: 1fr 1fr; }
+    .about-copy { font-size: 13px; line-height: 1.65; }
+    .about-copy p { margin-bottom: 2px; }
+    .focus-list { gap: 8px; }
+    .focus-item { gap: 10px; }
+    .focus-symbol { flex-basis: 37px; }
+    .stack-panel { padding: 14px 20px; }
+    .stack-chip { min-width: 96px; padding: 9px 12px; }
+    .analytics-grid { grid-template-columns: minmax(0, 3.2fr) minmax(250px, 1.1fr); }
+    .stat-cards { grid-template-columns: minmax(0, .9fr) minmax(0, 1fr) minmax(0, 1.35fr); gap: 12px; }
+    .mini-card { padding: 13px; }
+    .metric strong { font-size: 21px; }
+    .contrib-grid { grid-template-columns: repeat(26, minmax(4px, 1fr)); gap: 3px; min-width: 0; }
+    .project-grid { gap: 14px; }
+    .project { padding: 13px; }
+    .project-title { font-size: 13px; }
+    .project-desc { font-size: 10px; margin-bottom: 9px; }
+    footer { padding-top: 17px; }
+    @media (max-width: 1100px) {
+      .sidebar { width: 78px; padding: 24px 10px; }
+      main { margin-left: 78px; padding: 18px; }
+      .analytics-grid { grid-template-columns: 1fr; }
+      .stat-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 760px) {
+      .sidebar { width: 100%; }
+      main { margin-left: 0; padding: 14px 12px 24px; }
+      .hero { min-height: 240px; padding: 24px 20px; }
+      .two-col, .project-grid { grid-template-columns: 1fr; }
+      .stat-cards { grid-template-columns: 1fr; }
+    }
+
   </style>
 </head>
 <body>
@@ -176,10 +225,10 @@
 
   <main>
     <header class="hero reveal" id="home">
-      <img class="hero-image" src="assets/dashboard-hero.png" alt="" onerror="this.style.display='none'">
+      <img class="hero-image" src="assets/hero-mountains.jpg" alt="" onerror="this.style.display='none'">
       <div class="hero-content">
-        <div class="eyebrow">Developer Dashboard / 2026</div>
-        <h1>Hi, I'm <span class="gradient-text">Zhang.</span></h1>
+        <div class="hero-greeting">Hi, I’m</div>
+        <h1>Miss <span class="gradient-text">Zhang</span></h1>
         <div class="hero-sub"><span>C++ Developer in Progress</span> &nbsp;|&nbsp; Linux &amp; Network Programming &nbsp;|&nbsp; Exploring AI Systems</div>
         <div class="pills"><span class="pill"><span class="status-dot"></span>Focus: Systems &amp; AI</span><span class="pill purple">Status: Learning &amp; Building</span></div>
       </div>
@@ -194,7 +243,7 @@
           <p>Interested in high-performance systems and AI infrastructure.</p>
           <p>Building projects to turn knowledge into practical skills.</p>
         </div>
-        <a class="action-link" href="https://github.com/Zhang-ling0" target="_blank" rel="noreferrer">Explore my GitHub <span>↗</span></a>
+        <a class="action-link" href="https://github.com/Zhang-ling0" target="_blank" rel="noreferrer">Learn by Building <span>→</span></a>
       </article>
       <article class="panel reveal">
         <h2 class="panel-heading"><span class="heading-icon">◎</span>Current Focus</h2>
@@ -223,7 +272,7 @@
     <section class="section grid analytics-grid" id="stats">
       <article class="panel reveal">
         <h2 class="panel-heading"><span class="heading-icon">▥</span>GitHub Analytics</h2>
-        <div class="muted" style="font-size:11px;margin:-10px 0 15px 42px">Activity · Repositories · Language distribution</div>
+        <div class="muted" style="font-size:11px;margin:-10px 0 15px 42px">Activity · Language Distribution · Development Progress</div>
         <div class="stat-cards">
           <div class="mini-card">
             <div class="mini-title">GitHub Stats</div>
@@ -252,7 +301,7 @@
       </article>
       <article class="panel reveal">
         <h2 class="panel-heading"><span class="heading-icon">↝</span>Contribution Snake</h2>
-        <p class="muted" style="font-size:12px;margin:-5px 0 5px">Your GitHub contribution animation</p>
+        <p class="muted" style="font-size:12px;margin:-5px 0 5px">Keep going, you’re doing great!</p>
         <img class="snake-img" src="https://raw.githubusercontent.com/Zhang-ling0/Zhang-ling0/output/github-contribution-grid-snake-dark.svg" alt="GitHub contribution snake animation" onerror="this.style.display='none';document.getElementById('snake-fallback').hidden=false">
         <div class="snake-fallback" id="snake-fallback" hidden>Snake animation isn't available right now. Check the workflow output branch.</div>
         <a class="action-link" href="https://github.com/Zhang-ling0" target="_blank" rel="noreferrer">View contribution profile ↗</a>

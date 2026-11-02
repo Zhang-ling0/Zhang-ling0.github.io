@@ -110,6 +110,8 @@
     .snake-img { display:block; width:100%; max-width:380px; margin:15px auto 0; }
     .snake-fallback { color:var(--muted); font-size:12px; text-align:center; padding:10px 0; }
     .project-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    /* Blog has one card, so let it span the full content width like the other panels. */
+    #blog .project-grid { grid-template-columns:minmax(0, 1fr); }
     .project { display:flex; gap:15px; justify-content:space-between; padding:16px; border-radius:14px; border:1px solid rgba(70,140,255,.25); background:rgba(4,15,35,.62); transition:.22s; }
     .project:hover { transform:translateY(-3px); border-color:rgba(77,234,255,.6); box-shadow:0 14px 32px rgba(0,0,0,.18); }
     .project-main { min-width:0; }
@@ -216,6 +218,7 @@
     <nav class="nav" aria-label="Main navigation">
       <a class="active" href="#home"><span class="nav-icon">⌂</span><span class="nav-label">Home</span></a>
       <a href="#projects"><span class="nav-icon">▦</span><span class="nav-label">Projects</span></a>
+      <a href="#blog"><span class="nav-icon">▤</span><span class="nav-label">Blog</span></a>
       <a href="#skills"><span class="nav-icon">⌘</span><span class="nav-label">Skills</span></a>
       <a href="#stats"><span class="nav-icon">◷</span><span class="nav-label">Stats</span></a>
       <a href="#about"><span class="nav-icon">◉</span><span class="nav-label">About</span></a>
@@ -308,6 +311,21 @@
       </article>
     </section>
 
+    <section class="section panel reveal" id="blog">
+      <h2 class="panel-heading"><span class="heading-icon">▤</span>Personal Blog</h2>
+      <div class="muted" style="font-size:11px;margin:-10px 0 15px 42px">Notes, ideas and learning records</div>
+      <div class="project-grid">
+        <a class="project" href="https://zhang-ling0.github.io/Zhang-ling0.io/index.html" target="_blank" rel="noopener noreferrer">
+          <div class="project-main">
+            <h3 class="project-title">Zhang-ling0 Blog</h3>
+            <p class="project-desc">Personal Blog · Learning Notes · Technical Sharing</p>
+            <p style="font-size:12px;color:#c2d3eb;margin:0 0 14px">A personal space for recording thoughts, documenting the learning process and sharing technical content.</p>
+            <div class="project-tags"><span class="tag">Blog</span><span class="tag">Notes</span><span class="tag">Learning</span></div>
+          </div><div class="project-side"><div class="project-mark">B</div><span class="project-link">Visit Blog ↗</span></div>
+        </a>
+      </div>
+    </section>
+
     <section class="section panel reveal" id="projects">
       <h2 class="panel-heading"><span class="heading-icon">▱</span>Featured Projects</h2>
       <div class="muted" style="font-size:11px;margin:-10px 0 15px 42px">Turning knowledge into practical engineering</div>
@@ -375,7 +393,7 @@
   document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
   const navLinks = [...document.querySelectorAll(".nav a")];
-  const sections = ["home","projects","skills","stats","about"].map(id => document.getElementById(id)).filter(Boolean);
+  const sections = ["home","projects","blog","skills","stats","about"].map(id => document.getElementById(id)).filter(Boolean);
   const activeObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
